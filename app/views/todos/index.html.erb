@@ -1,0 +1,18 @@
+<div class='fuck_you'>
+  <h1>shit list</h1>
+  <p>list of things/people that are pieces of shit<p>
+  <%= form_for :todo do |f| %>
+    <%= f.text_field :task, placeholder: "add task here", id: "todo-box" %>
+  <% end %>
+
+  <br>
+
+  <% @todos.each do |t| %>
+    <ul>
+      <%= t.task %>
+      <%= form_tag(todo_path(t), method: :delete) do %>
+        <%= submit_tag 'Destroy' %>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
