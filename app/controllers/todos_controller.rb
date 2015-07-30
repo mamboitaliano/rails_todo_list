@@ -10,6 +10,7 @@ class TodosController < ApplicationController
   end
 
   def show
+    @todos = Todo.all
   end
 
   def update
@@ -23,7 +24,7 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit(:description, :text)
+    params.require(:todo).permit(:task, :text)
   end
 
   def todo(todo_id)

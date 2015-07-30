@@ -1,6 +1,7 @@
 <div class='fuck_you'>
   <h1>shit list</h1>
-  <p>list of things/people that are pieces of shit<p>
+  <p>evil things to do<p>
+
   <%= form_for :todo do |f| %>
     <%= f.text_field :task, placeholder: "add task here", id: "todo-box" %>
   <% end %>
@@ -9,7 +10,7 @@
 
   <% @todos.each do |t| %>
     <ul>
-      <%= t.task %>
+      <li> <%= t.task %> </li>
       <%= form_tag(todo_path(t), method: :delete) do %>
         <%= submit_tag 'Destroy' %>
       <% end %>
