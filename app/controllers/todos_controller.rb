@@ -1,12 +1,15 @@
 class TodosController < ApplicationController
   def index
-    @todo = Todo.new
     @todos = Todo.all
   end
 
-  def create
-    @todo = Todo.create(todo_params)
-    redirect_to '/'
+  def created                   # <----- START HERE WHEN WORKING ON THE WHOLE ONE-PAGE JAVASCRIPT CLUSTERFUCK
+    @todo = Todo.new(todo_params)
+    if @todo.save!
+      render json: @task, status: :created # <------------------ this simply returns an http status 201 (created) for testing purposes
+    else
+      render_errors(@todo)
+    end
   end
 
   def show
